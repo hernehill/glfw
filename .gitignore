@@ -102,3 +102,7 @@ tests/triangle-vulkan
 tests/window
 tests/windows
 
+# HH
+_rez_build
+.vscode
+.idea
