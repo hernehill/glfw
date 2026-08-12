@@ -21,13 +21,21 @@ variants = []
 
 
 def commands():
+    import sys
+
     env.REZ_GLFW_ROOT = "{root}"
     env.GLFW_ROOT = "{root}"
     env.GLFW_LOCATION = "{root}"
     env.GLFW_INCLUDE_DIR = "{root}/include"
 
-    env.LD_LIBRARY_PATH.append("{root}/lib64")
-    env.PKG_CONFIG_PATH.append("{root}/lib64/pkgconfig")
+    if sys.platform.startswith("win"):
+        env.PATH.append("{root}/bin")
+        env.PATH.append("{root}/lib")
+        env.PKG_CONFIG_PATH.append("{root}/lib/pkgconfig")
+    elif sys.platform.startswith("linux"):
+        env.LD_LIBRARY_PATH.append("{root}/lib64")
+        env.PKG_CONFIG_PATH.append("{root}/lib64/pkgconfig")
+    
 
 
 uuid = "repository.glfw"
