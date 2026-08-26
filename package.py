@@ -29,7 +29,6 @@ def commands():
     env.GLFW_INCLUDE_DIR = "{root}/include"
 
     if sys.platform.startswith("win"):
-        env.PATH.append("{root}/bin")
         env.PATH.append("{root}/lib")
         env.PKG_CONFIG_PATH.append("{root}/lib/pkgconfig")
     elif sys.platform.startswith("linux"):
